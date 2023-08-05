@@ -4,4 +4,4 @@ echo "MODSBOTS IS THE KING"
 nohup relay connect --region eu --name mygcps 
 #chmod +x /usr/local/bin/x-ui
 #/usr/local/bin/x-ui run bash
-
+x-ui run bash
