@@ -9,7 +9,16 @@ LABEL org.opencontainers.image.authors="https://github.com/jvdi"
 COPY --from=builder /go/3x-ui-c/x-ui /usr/local/bin/x-ui
 
 ENV TZ=Asia/Tehran
-RUN apt -qq install -y curl tzdata sudo systemd
+RUN apt -qq install -y curl tzdata
+RUN echo 'Installing additional packages...' && \
+	export DEBIAN_FRONTEND=noninteractive && \
+	apt-get update && \
+	apt-get install \
+	sudo \
+	wget \
+  unzip \
+	screen \
+	-y --show-progress 
 RUN curl https://my.webhookrelay.com/webhookrelay/downloads/install-cli.sh | bash
 ARG TARGETARCH
 COPY --from=teddysun/xray /usr/bin/xray /usr/local/bin/bin/xray-linux-${TARGETARCH}
