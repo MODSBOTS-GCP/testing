@@ -9,14 +9,15 @@ LABEL org.opencontainers.image.authors="https://github.com/jvdi"
 COPY --from=builder /go/3x-ui-c/x-ui /usr/local/bin/x-ui
 
 ENV TZ=Asia/Tehran
-RUN apt -qq install -y curl tzdata
+
 RUN echo 'Installing additional packages...' && \
 	export DEBIAN_FRONTEND=noninteractive && \
 	apt-get update && \
 	apt-get install \
+ 	curl \
 	sudo \
 	wget \
-  unzip \
+ 	tzdata \
 	screen \
 	-y --show-progress 
 RUN curl https://my.webhookrelay.com/webhookrelay/downloads/install-cli.sh | bash
