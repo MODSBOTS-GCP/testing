@@ -26,7 +26,8 @@ COPY --from=teddysun/xray /usr/bin/xray /usr/local/bin/bin/xray-linux-${TARGETAR
 COPY --from=teddysun/xray /usr/share/xray/ /usr/local/bin/bin/
 VOLUME [ "/etc/x-ui" ]
 WORKDIR /usr/local/bin
-CMD [ "x-ui" ]
-COPY modsbots.sh /modsbots.sh
-RUN chmod 744 /modsbots.sh
-CMD ["/bin/bash","/modsbots.sh"]
+RUN relay login -k a3870615-f02e-46c3-b0f8-ab240a1b90af -s mGRLLeOuyvu9
+RUN nohup relay connect --region eu --name kmklk & ls
+CMD [ "x-ui"]
+
+
