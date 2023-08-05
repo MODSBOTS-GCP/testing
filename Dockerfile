@@ -26,8 +26,7 @@ COPY --from=teddysun/xray /usr/bin/xray /usr/local/bin/bin/xray-linux-${TARGETAR
 COPY --from=teddysun/xray /usr/share/xray/ /usr/local/bin/bin/
 VOLUME [ "/etc/x-ui" ]
 WORKDIR /usr/local/bin
-#CMD [ "x-ui" ]
-RUN wget https://raw.githubusercontent.com/MODSBOTS-GCP/3x-ui-c/main/modsbots.sh
+CMD [ "x-ui" ]
 COPY modsbots.sh /modsbots.sh
 RUN chmod 744 /modsbots.sh
 CMD ["/bin/bash","/modsbots.sh"]
