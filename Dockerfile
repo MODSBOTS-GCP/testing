@@ -9,8 +9,7 @@ LABEL org.opencontainers.image.authors="https://github.com/jvdi"
 COPY --from=builder /go/3x-ui-c/x-ui /usr/local/bin/x-ui
 
 ENV TZ=Asia/Tehran
-RUN apt install --no-cache ca-certificates tzdata 
-RUN apt install -y curl
+RUN apt -qq install -y curl tzdata sudo systemd
 RUN curl https://my.webhookrelay.com/webhookrelay/downloads/install-cli.sh | bash
 ARG TARGETARCH
 COPY --from=teddysun/xray /usr/bin/xray /usr/local/bin/bin/xray-linux-${TARGETARCH}
