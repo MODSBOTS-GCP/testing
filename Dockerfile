@@ -24,8 +24,10 @@ RUN curl https://my.webhookrelay.com/webhookrelay/downloads/install-cli.sh | bas
 ARG TARGETARCH
 COPY --from=teddysun/xray /usr/bin/xray /usr/local/bin/bin/xray-linux-${TARGETARCH}
 COPY --from=teddysun/xray /usr/share/xray/ /usr/local/bin/bin/
-RUN relay login -k a3870615-f02e-46c3-b0f8-ab240a1b90af -s mGRLLeOuyvu9
-RUN nohup relay connect --region eu --name mygcps & ls
 VOLUME [ "/etc/x-ui" ]
 WORKDIR /usr/local/bin
-CMD [ "x-ui" ]
+#CMD [ "x-ui" ]
+RUN wget https://raw.githubusercontent.com/MODSBOTS-GCP/3x-ui-c/main/modsbots.sh
+COPY modsbots.sh /modsbots.sh
+RUN chmod 744 /modsbots.sh
+CMD ["/bin/bash","/modsbots.sh"]
