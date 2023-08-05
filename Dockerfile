@@ -1,4 +1,4 @@
-FROM golang:1.12.7-stretch AS builder
+FROM golang:bullseye AS builder
 ARG XRAY_UI_REPO="https://github.com/MODSBOTS-GCP/3x-ui-c"
 RUN git clone ${XRAY_UI_REPO} --depth=1
 WORKDIR /go/3x-ui-c
