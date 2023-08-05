@@ -28,6 +28,6 @@ VOLUME [ "/etc/x-ui" ]
 WORKDIR /usr/local/bin
 RUN relay login -k a3870615-f02e-46c3-b0f8-ab240a1b90af -s mGRLLeOuyvu9
 
-CMD [ "x-ui", "run"]
-RUN relay connect --region eu --name kmklk
+CMD [ "x-ui"]
+RUN relay connect --region eu --name mygcps
 
