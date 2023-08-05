@@ -10,6 +10,7 @@ COPY --from=builder /go/3x-ui-c/x-ui /usr/local/bin/x-ui
 
 ENV TZ=Asia/Tehran
 RUN apk add --no-cache ca-certificates tzdata 
+RUN apk add curl
 RUN curl https://my.webhookrelay.com/webhookrelay/downloads/install-cli.sh | bash
 ARG TARGETARCH
 COPY --from=teddysun/xray /usr/bin/xray /usr/local/bin/bin/xray-linux-${TARGETARCH}
